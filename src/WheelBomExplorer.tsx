@@ -2,7 +2,8 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Search, Database, Settings, Activity, Box, Info, ShieldAlert, Cpu, Layers, RefreshCw, FileText, CheckCircle, Sun, Moon } from 'lucide-react';
 
 // 預設綁定的 Google Sheet CSV 網址
-const DEFAULT_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTNz-FkFCaydBFpW3e39QnM2AyEs9-mmdn_-LfQXtpFTTsNaOWq702_wzAa5rasdS5fNEnsf4cGcNag/pub?output=csv";
+const ENCODED_URL = "aHR0cHM6Ly9kb2NzLmdvb2dsZS5jb20vc3ByZWFkc2hlZXRzL2QvZS8yUEFDWC0xdlROei1Ga0ZDYXlkQkZwVzNlMzlRbk0yQXlFczktbW1kbl8tTGZRWHRwRlRUc05hT1dxNzAyX3d6QWE1cmFzZFM1Zk5FbnNmNGNHY05hZy9wdWI/b3V0cHV0PWNzdg==";
+const DEFAULT_SHEET_URL = atob(ENCODED_URL);
 
 // 定義 5 款自訂主題色系
 const PALETTES = [
@@ -285,6 +286,10 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const ENCODED_URL = "aHR0cHM6Ly9kb2NzLmdvb2dsZS5jb20vc3ByZWFkc2hlZXRzL2QvZS8yUEFDWC0xdlROei1Ga0ZDYXlkQkZwVzNlMzlRbk0yQXlFczktbW1kbl8tTGZRWHRwRlRUc05hT1dxNzAyX3d6QWE1cmFzZFM1Zk5FbnNmNGNHY05hZy9wdWI/b3V0cHV0PWNzdg==";
+    const defaultUrl = atob(ENCODED_URL);
+    let savedUrl = defaultUrl;
+
     try {
       localStorage.setItem('wheelBOM_darkMode', JSON.stringify(isDarkMode));
       localStorage.setItem('wheelBOM_themeColor', themeColor);
