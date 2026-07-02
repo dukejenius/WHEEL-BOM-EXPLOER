@@ -663,8 +663,8 @@ text-rose-300/80 text-rose-400/70 text-rose-400/80 text-rose-700/90
       `}} />
     
 
-      {/* Header */}
-      <header className={`sticky top-0 z-50 backdrop-blur-md border-b transition-colors duration-300 ${theme.header}`}>
+      {/* Header - 加入 lg:sticky 讓手機版不固定，桌機版固定 */}
+      <header className={`lg:sticky top-0 z-50 backdrop-blur-md border-b transition-colors duration-300 ${theme.header}`}>
         <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className={`w-11 h-11 rounded flex items-center justify-center animate-pulse ${theme.iconWrap}`}>
@@ -745,8 +745,8 @@ text-rose-300/80 text-rose-400/70 text-rose-400/80 text-rose-700/90
       ) : (
         <div className="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
           
-          {/* 左側：料號搜尋與清單選取區 */}
-          <div className={`lg:col-span-1 border rounded-lg p-5 flex flex-col h-fit self-start transition-colors duration-300 sticky top-28 z-40 ${theme.panel}`}>
+          {/* 左側：料號搜尋與清單選取區 - 將 sticky 改為 lg:sticky 讓手機版不固定 */}
+          <div className={`lg:col-span-1 border rounded-lg p-5 flex flex-col h-fit self-start transition-colors duration-300 lg:sticky lg:top-28 z-40 ${theme.panel}`}>
             <div className="mb-4">
               <span className={`text-xs block mb-2 font-bold tracking-wider ${theme.searchTitle}`}>SEARCH_CONSOLE // FUZZY SEARCH</span>
               <div className="relative">
